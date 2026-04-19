@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --cream: #FFF8F0;
+  --orange: #FF6B35;
+  --brown: #2C1810;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #FFF8F0;
+  color: #2C1810;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #FFF8F0; }
+::-webkit-scrollbar-thumb { background: #FF6B35; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #E85D20; }
+
+/* ─── Selection ─── */
+::selection { background: #FF6B35; color: #fff; }
+
+/* ─── Typography ─── */
+.font-display { font-family: 'Playfair Display', Georgia, serif; }
+.font-body { font-family: 'Inter', system-ui, sans-serif; }
+
+/* ─── Grain texture overlay ─── */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+}
+
+/* ─── Hero gradient orbs ─── */
+.orb {
+  border-radius: 50%;
+  filter: blur(80px);
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ─── Product card tilt ─── */
+.card-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+}
+
+/* ─── Price tag ─── */
+.price-tag {
+  position: relative;
+  background: #FF6B35;
+  color: #fff;
+  padding: 4px 14px 4px 10px;
+  border-radius: 4px 0 0 4px;
+  font-weight: 700;
+}
+.price-tag::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  border-style: solid;
+  border-width: 14px 0 14px 10px;
+  border-color: transparent transparent transparent #FF6B35;
+}
+
+/* ─── Glass card ─── */
+.glass {
+  background: rgba(255, 248, 240, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 228, 192, 0.5);
+}
+
+/* ─── Shimmer loading ─── */
+.shimmer {
+  background: linear-gradient(90deg, #FFF8F0 25%, #FFE4C0 50%, #FFF8F0 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ─── Section dividers ─── */
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.wave-divider svg {
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
+}
+
+/* ─── Marquee ─── */
+.marquee-inner {
+  display: flex;
+  width: max-content;
+}
+.marquee-track {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* ─── Sold Out ribbon ─── */
+.sold-out-ribbon {
+  position: absolute;
+  top: 16px;
+  right: -4px;
+  background: #B84010;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 2px 2px 0 2px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+.sold-out-ribbon::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  right: 0;
+  border-style: solid;
+  border-width: 0 4px 4px 0;
+  border-color: transparent #7a2b0b transparent transparent;
+}
+
+/* ─── Smooth fade-in for page ─── */
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter {
+  animation: pageIn 0.5s ease forwards;
+}
+
+/* ─── Three.js canvas ─── */
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ─── Input focus ring ─── */
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid #FF6B35;
+  outline-offset: 0;
+}
+
+/* ─── Mobile nav overlay ─── */
+.nav-overlay {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+}
