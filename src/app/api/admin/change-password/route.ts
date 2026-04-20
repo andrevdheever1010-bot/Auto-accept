@@ -13,7 +13,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid input. New password must be at least 6 characters.' }, { status: 400 });
   }
 
-  const username = session.user?.name!;
+  const username = session.user?.name ?? '';
+  if (!username) return NextResponse.json({ error: 'Session invalid' }, { status: 401 });
+
   const admin = await prisma.admin.findUnique({ where: { username } });
   if (!admin) return NextResponse.json({ error: 'Admin not found' }, { status: 404 });
 

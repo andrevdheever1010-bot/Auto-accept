@@ -41,7 +41,8 @@ export default function AboutSection() {
             </ScrollReveal>
 
             {/* Contact */}
-            <ScrollReveal delay={0.2} id="contact">
+            <div id="contact">
+            <ScrollReveal delay={0.2}>
               <div className="space-y-3">
                 {[
                   { icon: '📞', label: 'Call or WhatsApp', value: '069 427 4833', href: 'tel:+27694274833' },
@@ -66,6 +67,7 @@ export default function AboutSection() {
                 ))}
               </div>
             </ScrollReveal>
+            </div>
           </div>
 
           {/* Stats grid */}
