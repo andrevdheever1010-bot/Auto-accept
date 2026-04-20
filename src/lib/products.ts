@@ -11,7 +11,7 @@ export const PRODUCTS: ProductDef[] = [
       { size: '1kg', price: 120 },
       { size: '2.5kg', price: 250 },
     ],
-    image: 'https://images.unsplash.com/photo-1562967914-608f82629710?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?w=600&q=80',
   },
   {
     id: 'chicken-strips',
@@ -46,7 +46,7 @@ export const PRODUCTS: ProductDef[] = [
     variants: [
       { size: '1kg', price: 110 },
     ],
-    image: 'https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80',
   },
   {
     id: 'chicken-schnitzel',
@@ -58,7 +58,7 @@ export const PRODUCTS: ProductDef[] = [
       { size: '1kg', price: 120 },
       { size: '2.5kg', price: 270 },
     ],
-    image: 'https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&q=80',
   },
 ];
 
