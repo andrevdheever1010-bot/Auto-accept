@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   keywords: 'fresh chicken, Pretoria, delivery, nuggets, strips, schnitzel, A+Market',
   openGraph: {
     title: 'A+Market — Fresh Premium Chicken',
-    description: 'Order by Friday. Delivered Saturday. Pretoria's finest fresh chicken.',
+    description: "Order by Friday. Delivered Saturday. Pretoria's finest fresh chicken.",
     type: 'website',
   },
 };

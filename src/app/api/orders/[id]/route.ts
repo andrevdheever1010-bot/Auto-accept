@@ -7,7 +7,7 @@ import { notifyCustomerOrderStatus } from '@/lib/whatsapp';
 export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
   const order = await prisma.order.findUnique({ where: { id: params.id } });
   if (!order) return NextResponse.json({ error: 'Not found' }, { status: 404 });
-  return NextResponse.json(order);
+  return NextResponse.json({ ...order, items: JSON.parse(order.items as string) });
 }
 
 export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
@@ -28,11 +28,11 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
   // Notify customer via WhatsApp
   const orderForNotif = {
     ...order,
-    items: order.items as never,
+    items: JSON.parse(order.items as string),
     createdAt: order.createdAt.toISOString(),
     updatedAt: order.updatedAt.toISOString(),
   };
   notifyCustomerOrderStatus(orderForNotif, status).catch(console.error);
 
-  return NextResponse.json(order);
+  return NextResponse.json({ ...order, items: JSON.parse(order.items as string) });
 }
