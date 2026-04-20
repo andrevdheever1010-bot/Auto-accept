@@ -11,7 +11,7 @@ export const PRODUCTS: ProductDef[] = [
       { size: '1kg', price: 120 },
       { size: '2.5kg', price: 250 },
     ],
-    image: 'https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?w=600&q=80',
+    image: '/nuggets.jpg',
   },
   {
     id: 'chicken-strips',
@@ -23,7 +23,7 @@ export const PRODUCTS: ProductDef[] = [
       { size: '1kg', price: 120 },
       { size: '2.5kg', price: 270 },
     ],
-    image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=600&q=80',
+    image: '/strips.jpg',
   },
   {
     id: 'chicken-patties',
@@ -35,7 +35,7 @@ export const PRODUCTS: ProductDef[] = [
       { size: '1kg', price: 120 },
       { size: '2.5kg', price: 250 },
     ],
-    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80',
+    image: '/patties.jpg',
   },
   {
     id: 'chicken-pops',
@@ -46,7 +46,7 @@ export const PRODUCTS: ProductDef[] = [
     variants: [
       { size: '1kg', price: 110 },
     ],
-    image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80',
+    image: '/pops.jpg',
   },
   {
     id: 'chicken-schnitzel',
@@ -58,7 +58,7 @@ export const PRODUCTS: ProductDef[] = [
       { size: '1kg', price: 120 },
       { size: '2.5kg', price: 270 },
     ],
-    image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&q=80',
+    image: '/schnitzel.jpg',
   },
 ];
 
