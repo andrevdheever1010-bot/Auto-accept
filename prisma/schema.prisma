@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -15,7 +15,7 @@ model Order {
   email        String
   address      String
   deliveryType String   // "delivery" | "pickup"
-  items        String
+  items        Json
   subtotal     Float
   deliveryFee  Float
   total        Float

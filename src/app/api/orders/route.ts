@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
         email: email.trim().toLowerCase(),
         address: address?.trim() || 'Pickup',
         deliveryType,
-        items: JSON.stringify(items),
+        items,
         subtotal: Number(subtotal),
         deliveryFee: Number(deliveryFee),
         total: Number(total),
@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
     // Non-blocking notifications
     const orderForNotif = {
       ...order,
-      items: JSON.parse(order.items as string),
+      items: order.items as never,
       createdAt: order.createdAt.toISOString(),
       updatedAt: order.updatedAt.toISOString(),
     };
@@ -86,6 +86,5 @@ export async function GET(req: NextRequest) {
     prisma.order.count({ where }),
   ]);
 
-  const parsed = orders.map((o) => ({ ...o, items: JSON.parse(o.items as string) }));
-  return NextResponse.json({ orders: parsed, total, page, limit });
+  return NextResponse.json({ orders, total, page, limit });
 }
